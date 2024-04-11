@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.postList {
+  flex: 4;
+}
+.sidebar {
+  flex: 1;
+}

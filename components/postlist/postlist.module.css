@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.post {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.imageContainer {
+  flex: 1;
+  height: 300px;
+  position: relative;
+}
+
+.image {
+  border-radius: 5px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+.textContainer {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.details {
+  font-size: 16px;
+  font-weight: 300;
+}
+.category {
+  font-weight: bold;
+}
+
+.postTitle {
+  font-size: 60px;
+}
+
+.postDesc {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.button {
+  background-color: crimson;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: white;
+  width: max-content;
+}
