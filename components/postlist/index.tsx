@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const PostList = () => {
 
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<any[]>([])
 
   const getPosts=async ()=>{
 
