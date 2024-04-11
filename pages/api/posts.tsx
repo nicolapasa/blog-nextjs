@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from 'mongodb';
     
-    export default async function handler(req, res) {
-      const client = new MongoClient(process.env.MONGODB_URI);
+    export default async function handler(req: any, res:any) {
+      const client = new MongoClient(process.env.MONGODB_URI!);
     
       await client.connect();
       const db = client.db("blog-nextjs");
