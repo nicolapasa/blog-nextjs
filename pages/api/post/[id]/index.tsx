@@ -2,15 +2,21 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next'  
 type ResponseData = {
-  message: string
+  message: string,
+  post: any[],
+  error: any
 }  
+
     export default async function handler( req: NextApiRequest,
       res: NextApiResponse<ResponseData>) {
       const client = new MongoClient(process.env.MONGODB_URI!);
     
       await client.connect();
       const db = client.db("blog-nextjs");
-      let {id}=req.query;
+      let {id}:any=req.query;
+
+ 
+
       switch (req.method) {
         case 'GET':
          
@@ -20,7 +26,7 @@ type ResponseData = {
           
             if( id !== 'undefined'){
             
-              const post = await db.collection('posts').find({_id: new ObjectId(id)}).toArray();
+              const post = await db.collection('posts').find({_id: new ObjectId(id) }).toArray();
               
               res.status(200).json({"post":post});
     
