@@ -4,10 +4,14 @@ import React, { useEffect, useState } from 'react'
 import style from './sidebarposts.module.css'
 import axios from 'axios'
 
+type Props={
+  isWithImage: boolean
+}
 
-const SidebarPosts= ({isWithImage}) => {
 
-    const [posts, setPosts] = useState([])
+const SidebarPosts= ({isWithImage}:Props) => {
+
+    const [posts, setPosts] = useState<any[]>([])
 
     const [styleCat, setStyleCat] = useState("")
 
