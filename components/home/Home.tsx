@@ -7,7 +7,9 @@ type postType={
     title: string,
     content: string, 
     image: string,
-    _id: string
+    _id: string,
+    category:string,
+    created: string
     }
 }
 const Home = ({post}:postType) => {
