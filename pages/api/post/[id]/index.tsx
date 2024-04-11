@@ -1,10 +1,10 @@
 
-import { MongoClient, ObjectId } from 'mongodb';
+import { MongoClient, ObjectId, WithId } from 'mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next'  
 type ResponseData = {
   message: string,
-  post: any[],
-  error: any
+  post:WithId<Document>[],
+  error: object
 }  
 
     export default async function handler( req: NextApiRequest,
@@ -28,11 +28,11 @@ type ResponseData = {
             
               const post = await db.collection('posts').find({_id: new ObjectId(id) }).toArray();
               
-              res.status(200).json({"post":post});
+              res.status(200).json({post} );
     
               await client.close();
             }
-          } catch (error) {
+          } catch (error:any) {
              res.json(error)
           }
         break;
@@ -41,7 +41,7 @@ type ResponseData = {
          
           // Handle DELETE request
           if( id !== 'undefined'){ 
-          const resultDel = await db.collection('posts').deleteOne({
+          const resultDel:any = await db.collection('posts').deleteOne({
             _id: new ObjectId(id),
           });
           res.status(200).json(resultDel);
