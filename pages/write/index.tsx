@@ -12,7 +12,7 @@ const create = () => {
     const [category, setCategory] = useState<String>('')
     const [author, setAuthor] = useState<String>('')
 
-  const handleSubmit=async(e)=>{
+  const handleSubmit=async(e:any)=>{
     e.preventDefault()
     try {
       const response=await axios.post('http://localhost:3000/api/posts', {
@@ -26,7 +26,9 @@ const create = () => {
       router.push('/')
     
    
-    } catch (error) {
+    } catch (error
+      :any
+    ) {
        console.log(error.response.data.message)
        toast.error(error.response.data.message)
     }
