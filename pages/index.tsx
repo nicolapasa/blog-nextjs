@@ -30,7 +30,7 @@ const index = () => {
   
   const getOnePost=async()=>{
 
-     const response =await axios.get('http://localhost:3000/api/featured')
+     const response =await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/featured`)
      console.log(response.data.post)
      setPost(response.data.post[0])
 

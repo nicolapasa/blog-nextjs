@@ -26,7 +26,7 @@ const EditPage = () => {
    
     const getSinglePost=async()=>{
     
-       const response=await axios.get(`http://localhost:3000/api/post/${id}`)
+       const response=await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/post/${id}`)
        if(response.data.post[0]) setPost(response.data.post[0])
      
    
@@ -35,7 +35,7 @@ const EditPage = () => {
   const handleSubmit=async(e:any)=>{
     e.preventDefault()
     try {
-      const response=await axios.put('http://localhost:3000/api/posts', {
+      const response=await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
         id,
         title,
         content,

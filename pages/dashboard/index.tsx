@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     const getPosts=async ()=>{
   
-      const response=await axios.get('http://localhost:3000/api/posts')
+      const response=await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`)
       setPosts(response.data)
     }
     useEffect(() => {
@@ -23,7 +23,7 @@ const Dashboard = () => {
  const handleDelete=async(id:any)=>{
        
     try {
-        const response =await axios.delete(`http://localhost:3000/api/post/${id}`)
+        const response =await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/post/${id}`)
         router.push('/')
     } catch (error) {
         console.log(error)
@@ -70,3 +70,5 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
+

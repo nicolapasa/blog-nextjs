@@ -17,7 +17,7 @@ const SidebarPosts= ({isWithImage}:Props) => {
 
   const getPosts=async ()=>{
 
-    const response=await axios.get('http://localhost:3000/api/posts')
+    const response=await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`)
     setPosts(response.data)
     
   }

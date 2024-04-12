@@ -15,7 +15,7 @@ const create = () => {
   const handleSubmit=async(e:any)=>{
     e.preventDefault()
     try {
-      const response=await axios.post('http://localhost:3000/api/posts', {
+      const response=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
         title,
         content,
         image,

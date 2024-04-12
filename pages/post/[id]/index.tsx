@@ -29,7 +29,7 @@ const page = () => {
   })
   const getSinglePost=async()=>{
     console.log(id)
-     const response=await axios.get(`http://localhost:3000/api/post/${id}`)
+     const response=await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/post/${id}`)
       setPost(response.data.post[0])
       console.log(response.data.post)
  
