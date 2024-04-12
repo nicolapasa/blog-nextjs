@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 const Dashboard = () => {
     const router=useRouter()
 
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState<any[]>([])
 
     const getPosts=async ()=>{
   
@@ -20,7 +20,7 @@ const Dashboard = () => {
     }, [])
 
  //handle delete
- const handleDelete=async(id)=>{
+ const handleDelete=async(id:any)=>{
        
     try {
         const response =await axios.delete(`http://localhost:3000/api/post/${id}`)
