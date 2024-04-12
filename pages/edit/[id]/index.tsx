@@ -3,10 +3,20 @@ import style from './edit.module.css'
 import { categories } from '../../../constant'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-
+interface Post {
+  title: string;
+  content: string;
+  image: string;
+  category: string;
+  author: string;
+}
 const EditPage = () => {
     const router=useRouter()
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState<Post>({  title: '',
+    content: '',
+    image: '',
+    category: '',
+    author: ''})
     const [title, setTitle] = useState<String>(post.title)
     const [content, setContent] = useState<String>(post.content)
     const [image, setImage] = useState<String>(post.image)
@@ -17,12 +27,12 @@ const EditPage = () => {
     const getSinglePost=async()=>{
     
        const response=await axios.get(`http://localhost:3000/api/post/${id}`)
-        setPost(response.data.post[0])
+       if(response.data.post[0]) setPost(response.data.post[0])
      
    
      }
-     const [postId, setPostId] = useState(post._id)
-  const handleSubmit=async(e)=>{
+  
+  const handleSubmit=async(e:any)=>{
     e.preventDefault()
     try {
       const response=await axios.put('http://localhost:3000/api/posts', {
