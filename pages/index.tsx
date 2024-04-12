@@ -5,10 +5,27 @@ import style from './index.module.css'
 import PostList from '../components/postlist'
 import Sidebare from '../components/sidebar'
 import CategoryList from '../components/categorylist'
-import Footer from '../components/footer'
+
+interface Post {
+  _id: string;
+  title: string;
+  content: string;
+  image: string;
+  category: string;
+  author: string;
+  created: string;
+}
 const index = () => {
 
-  const [post, setPost] = useState({})
+  const [post, setPost] = useState<Post>({
+  _id: '',  
+  title: '',
+  content: '',
+  image: '',
+  category: '',
+  author: '',
+  created:''
+})
 
   
   const getOnePost=async()=>{
