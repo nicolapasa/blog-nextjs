@@ -1,11 +1,7 @@
 
 import { MongoClient, ObjectId, WithId } from 'mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next'  
-interface ResponseData  {
-  message: string
-  error: object
-  post: ObjectId[]
-}  
+
 
 
 
@@ -21,6 +17,7 @@ interface ResponseData  {
 
       switch (req.method) {
         case 'GET':
+
           interface Post {
             // Define the structure of your post data here
             // For example:
@@ -32,15 +29,21 @@ interface ResponseData  {
             author: String;
             // other properties...
           }
-     
+          interface ResponseData  {
+            message: string
+            error: object
+            post: WithId<Post>[] 
+          }  
         
           try {
           
             if( id !== 'undefined'){
             
-              const post : Post[]= await db.collection<Post>('posts').find({_id: new ObjectId(id) }).toArray();
+              const post :WithId<Post>[] |null = await db.collection<WithId<Post>>('posts').find({_id: new ObjectId(id) }).toArray();
               
-              res.status(200).json({post} );
+              const postIds: ObjectId[] = post.map(pos => pos._id); 
+
+              res.status(200).json({ postIds });
     
               await client.close();
             }
