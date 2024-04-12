@@ -31,3 +31,6 @@
   background-color: crimson;
   color: white;
 }
+.card {
+  position: relative;
+}
