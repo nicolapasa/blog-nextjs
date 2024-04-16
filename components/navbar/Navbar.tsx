@@ -16,19 +16,19 @@ const Navbar = () => {
         </div>
         <div className={style.logo}><Image src={'/logo.png'} width={164} height={164} alt='logo'/> </div>
         <ul className={style.links}>
-            <li> <Link href={'/'}>Home</Link>  </li>
-            <li> <Link href={'/about'}>About</Link>  </li>
-            <li> <Link href={'/contact'}>Contact</Link>  </li>
+            <li> <Link className={style.link} href={'/'}>Home</Link>  </li>
+            <li> <Link className={style.link} href={'/about'}>About</Link>  </li>
+            <li> <Link className={style.link} href={'/contact'}>Contact</Link>  </li>
             { !userId &&  
             <>
-            <li>   <Link href={'/sign-in'}>Sign In</Link>        </li>  
-            <li>   <Link href={'/sign-up'}>Sign Up</Link>        </li>  
+            <li>   <Link className={style.link} href={'/sign-in'}>Sign In</Link>        </li>  
+            <li>   <Link className={style.link} href={'/sign-up'}>Sign Up</Link>        </li>  
             </>
              }
            
       
             {userId && 
-            <Link href={'/dashboard'} className={style.link}>Dashboard</Link>
+            <Link className={style.link} href={'/dashboard'} >Dashboard</Link>
            }
              
             <UserButton />
